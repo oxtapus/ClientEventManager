@@ -18,6 +18,8 @@ import com.werox.clienteventmanager.providers.ClientEventContract.ReferralColumn
 import com.werox.clienteventmanager.providers.ClientEventContract.ReferralStatusColumns;
 import com.werox.clienteventmanager.providers.ClientEventContract.SyncColumns;
 
+import static com.werox.clienteventmanager.utils.LogUtils.*;
+
 public class ClientEventDatabase extends SQLiteOpenHelper {
 	
     private static final String TAG = makeLogTag(ClientEventDatabase.class);
@@ -167,5 +169,10 @@ public class ClientEventDatabase extends SQLiteOpenHelper {
                 + ClientCreditColumns.CREDIT_VALUE + " INTEGER NOT NULL,"
                 + ClientCreditColumns.CLAIMED + " INTEGER, "
                 + "UNIQUE (" + ClientCreditColumns.CLIENT_CREDIT_ID + ") ON CONFLICT REPLACE)");
+    }
+    
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    	/** TODO. */
     }
 }
