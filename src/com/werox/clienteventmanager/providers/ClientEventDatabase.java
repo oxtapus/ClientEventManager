@@ -1,6 +1,6 @@
 package com.werox.clienteventmanager.providers;
 
-import android.app.SearchManager;
+import static com.werox.clienteventmanager.utils.LogUtils.makeLogTag;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -9,17 +9,27 @@ import android.provider.CalendarContract.Events;
 
 import com.werox.clienteventmanager.providers.ClientEventContract.ClientColumns;
 import com.werox.clienteventmanager.providers.ClientEventContract.ClientCreditColumns;
+import com.werox.clienteventmanager.providers.ClientEventContract.ClientCredits;
+import com.werox.clienteventmanager.providers.ClientEventContract.Clients;
 import com.werox.clienteventmanager.providers.ClientEventContract.EventAttendeeColumns;
+import com.werox.clienteventmanager.providers.ClientEventContract.EventAttendees;
 import com.werox.clienteventmanager.providers.ClientEventContract.EventColumns;
 import com.werox.clienteventmanager.providers.ClientEventContract.EventTypeColumns;
+import com.werox.clienteventmanager.providers.ClientEventContract.EventTypes;
+import com.werox.clienteventmanager.providers.ClientEventContract.EventsTable;
 import com.werox.clienteventmanager.providers.ClientEventContract.LocationColumns;
+import com.werox.clienteventmanager.providers.ClientEventContract.Locations;
+import com.werox.clienteventmanager.providers.ClientEventContract.PaymentStatus;
 import com.werox.clienteventmanager.providers.ClientEventContract.PaymentStatusColumns;
 import com.werox.clienteventmanager.providers.ClientEventContract.ReferralColumns;
+import com.werox.clienteventmanager.providers.ClientEventContract.ReferralStatus;
 import com.werox.clienteventmanager.providers.ClientEventContract.ReferralStatusColumns;
+import com.werox.clienteventmanager.providers.ClientEventContract.Referrals;
 import com.werox.clienteventmanager.providers.ClientEventContract.SyncColumns;
 
-import static com.werox.clienteventmanager.utils.LogUtils.*;
-
+/**
+ * Helper for managing {@link SQLiteDatabase} that stores data
+ */
 public class ClientEventDatabase extends SQLiteOpenHelper {
 	
     private static final String TAG = makeLogTag(ClientEventDatabase.class);
@@ -77,16 +87,16 @@ public class ClientEventDatabase extends SQLiteOpenHelper {
     /** {@code REFERENCES} clauses. */
     private interface References {
         String CLIENT_ID = "REFERENCES " + Tables.CLIENTS + "(" + Clients.CLIENT_ID + ")";
-        String EVENT_TYPE_ID = "REFERENCES " + Tables.EVENT_TYPE + "(" + Event_Type.EVENT_TYPE_ID + ")";
-        String EVENT_ID = "REFERENCES " + Tables.EVENTS + "(" + Events.EVENT_ID + ")";
-        String EVENT_ATTENDEES_ID = "REFERENCES " + Tables.EVENT_ATTENDEES + "(" + Event_Attendees.EVENT_ATTENDEES_ID + ")";
+        String EVENT_TYPE_ID = "REFERENCES " + Tables.EVENT_TYPE + "(" + EventTypes.EVENT_TYPE_ID + ")";
+        String EVENT_ID = "REFERENCES " + Tables.EVENTS + "(" + EventsTable.EVENT_ID + ")";
+        String EVENT_ATTENDEE_ID = "REFERENCES " + Tables.EVENT_ATTENDEES + "(" + EventAttendees.EVENT_ATTENDEE_ID + ")";
         String LOCATION_ID = "REFERENCES " + Tables.LOCATIONS + "(" + Locations.LOCATION_ID + ")";
         String REFERRAL_ID = "REFERENCES " + Tables.REFERRALS + "(" + Referrals.REFERRAL_ID + ")";
-        String REFERRAL_STATUS_ID = "REFERENCES " + Tables.REFERRAL_STATUS + "(" + Referral_Status.REFERRAL_STATUS_ID + ")";
-        String REFERRING_CLIENT_ID = "REFERENCES " + Tables.REFERRAL_STATUS + "(" + Referral_Status.REFERRING_CLIENT_ID + ")";
-        String REFERRED_CLIENT_ID = "REFERENCES " + Tables.REFERRAL_STATUS + "(" + Referral_Status.REFERRED_CLIENT_ID + ")";
-        String PAYMENT_STATUS_ID = "REFERENCES " + Tables.PAYMENT_STATUS + "(" + Payment_Status.PAYMENT_STATUS_ID + ")";
-        String CLIENT_CREDIT_ID = "REFERENCES " + Tables.CLIENT_CREDITS + "(" + Client_Credits.CLIENT_CREDIT_ID + ")";
+        String REFERRAL_STATUS_ID = "REFERENCES " + Tables.REFERRAL_STATUS + "(" + ReferralStatus.REFERRAL_STATUS_ID + ")";
+        String REFERRING_CLIENT_ID = "REFERENCES " + Tables.CLIENTS + "(" + Clients.CLIENT_ID + ")";
+        String REFERRED_CLIENT_ID = "REFERENCES " + Tables.CLIENTS + "(" + Clients.CLIENT_ID + ")";
+        String PAYMENT_STATUS_ID = "REFERENCES " + Tables.PAYMENT_STATUS + "(" + PaymentStatus.PAYMENT_STATUS_ID + ")";
+        String CLIENT_CREDIT_ID = "REFERENCES " + Tables.CLIENT_CREDITS + "(" + ClientCredits.CLIENT_CREDIT_ID + ")";
     }
     
     public ClientEventDatabase(Context context) {

@@ -1,5 +1,7 @@
 package com.werox.clienteventmanager.providers;
 
+import android.provider.BaseColumns;
+
 public class ClientEventContract {
 
     /**
@@ -68,6 +70,8 @@ public class ClientEventContract {
 	
 	interface EventAttendeeColumns {
         /** The id of the event. */
+        String EVENT_ATTENDEE_ID = "event_attendee_id";
+        /** The id of the event. */
         String EVENT_ID = "event_attendee_event_id";
         /** The id of the client attending the event. */
         String CLIENT_ID = "event_attendee_client_id";
@@ -123,4 +127,40 @@ public class ClientEventContract {
         /** Value to store whether the credit has been claimed. */
         String CLAIMED = "client_credit_claimed";
     }
+	
+	public static class Clients implements ClientColumns, BaseColumns{
+		/** TODO. */
+	} 
+	
+	public static class EventTypes implements EventTypeColumns, BaseColumns{
+		/** TODO. */
+	}
+	
+	public static class EventsTable implements EventColumns, BaseColumns{
+		/** TODO. */
+	}
+	
+	public static class EventAttendees implements EventAttendeeColumns, BaseColumns{
+		/** TODO. */
+	}
+	
+	public static class Locations implements LocationColumns, BaseColumns{
+		/** TODO. */
+	}
+	
+	public static class Referrals implements ReferralColumns, BaseColumns{
+		/** TODO. */
+	}
+	
+	public static class ReferralStatus implements ReferralStatusColumns, BaseColumns{
+		/** TODO. */
+	}
+	
+	public static class PaymentStatus implements PaymentStatusColumns, BaseColumns{
+		/** TODO. */
+	}
+	
+	public static class ClientCredits implements ClientCreditColumns, BaseColumns{
+		/** TODO. */
+	}
 }
