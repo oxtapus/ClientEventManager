@@ -1,5 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-
+	
+	<!-- Add Event, should appear as action button -->
+    <item android:id="@+id/action_new_event"
+          android:icon="@drawable/ic_content_new"
+          android:title="@string/action_new_event"
+          android:showAsAction="ifRoom" />
+    <!-- Search, should appear as action button -->
+    <item android:id="@+id/action_search_events"
+          android:icon="@drawable/ic_action_search"
+          android:title="@string/action_search_events"
+          android:showAsAction="ifRoom" />
+    <!-- Settings, should always be in the overflow -->
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
