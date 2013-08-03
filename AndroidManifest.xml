@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.werox.clienteventmanager.DisplayMessageActivity"
+            android:name="com.werox.clienteventmanager.AddEvent"
             android:label="@string/title_activity_display_message"
             android:parentActivityName="com.werox.clienteventmanager.EventsList" >
             <meta-data

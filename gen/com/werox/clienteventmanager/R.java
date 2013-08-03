@@ -32,12 +32,12 @@ public final class R {
         public static final int edit_message=0x7f080000;
     }
     public static final class layout {
-        public static final int activity_display_message=0x7f030000;
-        public static final int activity_main=0x7f030001;
+        public static final int activity_add_event=0x7f030000;
+        public static final int events_list=0x7f030001;
     }
     public static final class menu {
-        public static final int display_message=0x7f070000;
-        public static final int main=0x7f070001;
+        public static final int add_event=0x7f070000;
+        public static final int events_list=0x7f070001;
     }
     public static final class string {
         public static final int action_new_event=0x7f050001;
