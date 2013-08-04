@@ -24,7 +24,7 @@
         </activity>
         <activity
             android:name="com.werox.clienteventmanager.AddEvent"
-            android:label="@string/title_activity_display_message"
+            android:label="@string/title_activity_add_event"
             android:parentActivityName="com.werox.clienteventmanager.EventsList" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

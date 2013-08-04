@@ -44,8 +44,8 @@ public class EventsList extends Activity {
     }
 
 	private void addNewEvent() {
-		// TODO Auto-generated method stub
 		Intent intent = new Intent(this, AddEvent.class);
+        startActivity(intent);
 	}
 
 	private void openSearch() {
